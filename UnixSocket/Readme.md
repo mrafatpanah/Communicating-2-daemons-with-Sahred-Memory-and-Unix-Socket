@@ -40,13 +40,3 @@ notice: first run Server app
     -- check process ID to kill if needed:
         ps -ax | grep <process ID>
         kill -9 <process ID>
-
-
-        - Step-1: compile with gcc
-            $ gcc server.c -o server
-
-        - Step-2: execute consumer application
-            $ ./server
-
-        - Step-3: check the result
-            open ServerLog.txt and wait for showing messages
