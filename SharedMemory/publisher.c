@@ -37,25 +37,23 @@ void configDaemon() {
     close(STDOUT_FILENO);
     close(STDERR_FILENO);
 
-    FILE *fp = NULL;
-    //Open a log file in write mode.
-    fp = fopen("./publisher.txt", "a");
+    //FILE *fp = NULL;
+    //fp = fopen("./publisher.txt", "a");
 
     int shmId = configSharedMemorySetup();
 
     int c = 0;
     for(;c <= 5; c++) {
-        //Dont block context switches, let the process sleep for some time
         sleep(2);
         char *str = (char*) shmat(shmId, (void*)0, 0);
 
-        strcpy(str, "going to start daemon\n");
-        fprintf(fp, "this is test from publisher!: \n");
-        fflush(fp);
+        strcpy(str, "this is message from publisher\n");
+        //fprintf(fp, "test!: \n");
+        //fflush(fp);
         sendMessage(str);
     }
     shmctl(shmId, IPC_RMID, NULL);
-    fclose(fp);
+    //fclose(fp);
     char *data;
     /* attach to the segment to get a pointer to it: */
     data = shmat(shmId, NULL, 0);
@@ -63,5 +61,5 @@ void configDaemon() {
         perror("shmat");
         exit(1);
     }
-    memset(data, 0, 2048);
+    memset(data, 0, SHM_BUFFER_SIZE);
 }

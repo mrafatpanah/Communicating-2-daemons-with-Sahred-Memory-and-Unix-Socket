@@ -30,9 +30,6 @@ this project contains Consumer and publisher application and 2 header files:
         - Step-2: execute consumer application
             $ ./publisher
 
-        - Step-3: check the result
-            open publisher.txt and wait for showing messages
-
 # Daemon
     -- check process ID to kill if needed:
         ps -ax | grep <process ID>
