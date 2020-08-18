@@ -22,7 +22,7 @@ this project contains Consumer and publisher application and 2 header files:
         - Step-4: check the result
             open consumer.txt and wait for reading messages from publisher
 
-# Consumer
+# Publisher
     -- run and execute:
         - Step-1: compile with gcc
             $ gcc publisher.c -o publisher
