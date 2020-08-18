@@ -1,12 +1,14 @@
 # Two daemons that communicate with Unix Socket
 
--- (Coded with: C programming language)
+(Coded with: C programming language)
 
 this project contains Client and server application and 2 header files:
 
--- test in Ubuntu OS (Linux)
+test in Ubuntu OS (Linux)
 
-# Client
+notice: first run Server app
+
+# Server
     -- run and execute:
         - Step-1: install gcc
             $ sudo apt update
@@ -14,16 +16,32 @@ this project contains Client and server application and 2 header files:
             $ sudo apt-get install manpages-dev
 
         - Step-2: compile with gcc
-            $ gcc client.c -o client
+            $ gcc server.c -o server
 
-        - Step-3: execute client application
-            $ ./client
+        - Step-3: execute consumer application
+            $ ./server
 
         - Step-4: check the result
-            open ClientLog.txt and wait for reading messages from Server
+            open ServerLog.txt and wait for showing messages
 
-# Server
+
+# Client
     -- run and execute:
+      - Step-1: compile with gcc
+          $ gcc client.c -o client
+
+      - Step-2: execute client application
+          $ ./client
+
+      - Step-3: check the result
+          open ClientLog.txt and wait for reading messages from Server
+
+# Daemon
+    -- check process ID to kill if needed:
+        ps -ax | grep <process ID>
+        kill -9 <process ID>
+
+
         - Step-1: compile with gcc
             $ gcc server.c -o server
 
@@ -32,8 +50,3 @@ this project contains Client and server application and 2 header files:
 
         - Step-3: check the result
             open ServerLog.txt and wait for showing messages
-
-# Daemon
-    -- check process ID to kill if needed:
-        ps -ax | grep <process ID>
-        kill -9 <process ID>
